@@ -3,22 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Cosas - Calculadora</title>
+    <!-- Cargamos el CSS principal para mantener el tema -->
     <link rel="stylesheet" href="index_style.css"> 
+    <!-- Cargamos el CSS específico de la calculadora -->
+    <link rel="stylesheet" href="calculadora_style.css">
 </head>
 <body>
+
     <header>
         <h1>Cosas</h1>
     </header>
+    
+    <!-- El botón de menú debe estar aquí si quieres que aparezca en esta página -->
+    <!-- <button id="toggleSidebarBtn" class="toggle-btn">☰</button> -->
+    <!-- (Necesitarías copiar el script.js a esta página para que funcione la barra lateral) -->
 
-    <main> <!-- Sin estilo inline style="margin-left: 20px;" -->
-        <h2>Página de Calculadora</h2>
-        <p>Aquí irá la calculadora.</p>
-        <a href="index.html">Volver al Inicio</a>
+
+    <main>
+        <h2>Calculadora Simple</h2>
+        
+        <div class="calculator-container">
+            <input type="number" id="num1" placeholder="Primer número">
+            <span>+</span>
+            <input type="number" id="num2" placeholder="Segundo número">
+            
+            <!-- El botón llama a la función JS -->
+            <button onclick="sumarNumeros()">=</button>
+            
+            <p>Resultado: <span id="resultado">0</span></p>
+        </div>
+
+        <a href="index.html" class="back-link">Volver al Inicio</a>
     </main>
 
     <footer>
         <p>&copy; 2025 Cosas Project</p>
     </footer>
+
+    <!-- Cargamos el script específico de la calculadora -->
+    <script src="calculadora_script.js"></script>
 </body>
 </html>
