@@ -3,102 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web con Python en Navegador</title>
-    <link rel="stylesheet" href="styles_index.css">
-    
-    <!-- 1. Importar los archivos CSS y JS de PyScript -->
-    <link rel="stylesheet" href="pyscript.net">
-    <script defer src="pyscript.net"></script>
+    <title>Animaciones con JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
-        <h1>Mi Proyecto con Python (en el navegador)</h1>
+        <h1>Animaciones con JavaScript</h1>
     </header>
 
     <main>
-        <section id="inicio">
-            <h2>Ejecutando Python con PyScript</h2>
-            <p>El siguiente código Python se ejecuta directamente en tu navegador, sin servidor.</p>
-            
-            <div class="python-container">
-                <h3>Calculadora Simple</h3>
-                <input type="number" id="num1" value="5">
-                <input type="number" id="num2" value="10">
-                <!-- Este botón llamará a la función Python definida abajo -->
-                <button py-click="sumar_numeros">Sumar</button>
-                <p>Resultado: <span id="output-suma">0</span></p>
+        <h2>Haz clic en la caja para animarla</h2>
+        
+        <div class="animation-container">
+            <!-- La caja que animaremos con JavaScript -->
+            <div id="box" class="box">
+                ¡Anímame!
             </div>
-            
-            <hr>
-            
-            <h3>Fecha y Hora Actual (Generado por Python)</h3>
-            <!-- Aquí se inyectará el resultado del script inicial -->
-            <div id="fecha-actual"></div>
+        </div>
 
+        <button id="animateButton">Reiniciar Animación JS</button>
+        
+        <section>
+            <h2>Animación CSS Pura (Hover)</h2>
+            <div class="css-box">
+                Pasa el ratón por aquí
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Mi Nombre de Usuario.</p>
+        <p>&copy; 2025 Ejemplo JS.</p>
     </footer>
 
-    <!-- 2. Área para tu código Python -->
-    <py-script>
-        import datetime as dt
-
-        # Función que se ejecuta cuando cargas la página
-        def mostrar_fecha():
-            now = dt.datetime.now()
-            fecha_str = now.strftime("Hoy es %d de %B de %Y, %H:%M:%S")
-            # Selecciona el elemento HTML por su ID y cambia su texto
-            pyscript.write("fecha-actual", fecha_str)
-
-        # Llama a la función justo después de definirla
-        mostrar_fecha()
-
-
-        # Función que se ejecuta al hacer clic en el botón (usando py-click)
-        def sumar_numeros(*args, **kwargs):
-            # Leer los valores de los inputs HTML
-            num1_str = Element("num1").value
-            num2_str = Element("num2").value
-
-            try:
-                n1 = float(num1_str)
-                n2 = float(num2_str)
-                resultado = n1 + n2
-                # Escribir el resultado en el span HTML con ID "output-suma"
-                pyscript.write("output-suma", str(resultado))
-            except ValueError:
-                pyscript.write("output-suma", "Error en los números")
-
-    </py-script>
-
-    <!-- 3. CSS adicional solo para el contenedor Python -->
-    <style>
-        .python-container {
-            background-color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 15px;
-            border: 1px solid #ccc;
-        }
-        input[type="number"], button {
-            padding: 8px;
-            margin: 5px 0;
-        }
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
-    </style>
-
+    <!-- Enlazar el archivo JavaScript -->
+    <script src="script.js" defer></script>
 </body>
 </html>
