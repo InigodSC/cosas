@@ -33,7 +33,7 @@ h1 {
 
 main {
     padding: 20px;
-    margin-left: 0; /* Aseguramos que el contenido principal no tenga margen */
+    margin-left: 0; 
     background-color: var(--light-bg);
     color: var(--dark-base);
     min-height: 80vh;
@@ -73,11 +73,10 @@ main {
     padding-top: 80px; 
     box-shadow: 2px 0 5px rgba(0,0,0,0.5);
     transition: transform 0.3s ease-in-out;
-    transform: translateX(-200px); /* Oculta la barra por defecto */
+    transform: translateX(-200px); 
     z-index: 10; 
 }
 
-/* Cuando la barra no está cerrada (está abierta), se muestra */
 .sidebar:not(.closed) {
     transform: translateX(0);
 }
@@ -100,22 +99,22 @@ main {
     color: var(--gold-hover);
 }
 
-/* Estilo del botón para desplegar/colapsar el menú (AHORA ES INDEPENDIENTE) */
+/* Estilo del botón para desplegar/colapsar el menú (AHORA EN LA IZQUIERDA) */
 .toggle-btn {
-    position: fixed; /* Posición fija en la ventana */
-    top: 15px; /* Separado del borde superior */
-    left: 15px; /* Separado del borde izquierdo */
+    position: fixed; 
+    top: 15px; 
+    left: 15px; /* <-- CAMBIO CLAVE: Posicionado a la izquierda */
     background-color: var(--gold-accent);
     color: var(--dark-base);
     border: none;
-    padding: 10px 15px; /* Padding ajustado para ser solo un icono visible */
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 4px;
     font-family: inherit;
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     transition: background-color 0.3s, transform 0.3s;
-    z-index: 11; /* Asegura que el botón esté encima de todo, incluso del sidebar */
-    font-size: 1.2rem; /* Para que el icono ☰ sea visible */
+    z-index: 11; 
+    font-size: 1.2rem;
 }
 
 .toggle-btn:hover {
