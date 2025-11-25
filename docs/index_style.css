@@ -1,17 +1,17 @@
-/* ... (Variables y estilos generales sin cambios) ... */
+/* Definición de variables CSS para los colores principales */
 :root {
-    --dark-base: #1C1C1C;
-    --dark-secondary: #2C2C2C;
-    --gold-accent: #D19900;
-    --gold-hover: #E8B000;
-    --light-bg: #F0F0F0;
-    --text-color: #e0e0e0;
+    --dark-base: #1C1C1C; /* El gris muy oscuro principal */
+    --dark-secondary: #2C2C2C; /* Un tono ligeramente más claro */
+    --medium-dark-gray: #4A4A4A; /* Nuevo gris intermedio para el fondo principal */
+    --gold-accent: #D19900; /* El dorado principal */
+    --gold-hover: #E8B000; 
+    --text-color: #ffffff; /* Color de texto blanco para el fondo oscuro */
 }
 
 body {
     font-family: Candara, "Segoe UI", sans-serif;
     background-color: var(--dark-base);
-    color: var(--text-color);
+    color: var(--text-color); /* El color base del body ahora es blanco */
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -34,8 +34,9 @@ h1 {
 main {
     padding: 20px;
     margin-left: 0; 
-    background-color: var(--light-bg);
-    color: var(--dark-base);
+    /* Fondo del main ahora es el gris intermedio oscuro */
+    background-color: var(--medium-dark-gray); 
+    color: var(--text-color); /* El texto dentro del main es blanco */
     min-height: 80vh;
 }
 
@@ -62,7 +63,7 @@ main {
     100% { transform: scale(1) rotate(360deg); }
 }
 
-/* --- Barra Lateral (Overlay Logic) --- */
+/* --- Barra Lateral (sin cambios, usa dark-base y dark-secondary) --- */
 .sidebar {
     height: 100%;
     width: 200px;
@@ -76,11 +77,7 @@ main {
     transform: translateX(-200px); 
     z-index: 10; 
 }
-
-.sidebar:not(.closed) {
-    transform: translateX(0);
-}
-
+.sidebar:not(.closed) { transform: translateX(0); }
 .nav-button {
     display: block;
     color: white;
@@ -99,11 +96,10 @@ main {
     color: var(--gold-hover);
 }
 
-/* Estilo del botón para desplegar/colapsar el menú (AHORA EN LA IZQUIERDA) */
 .toggle-btn {
     position: fixed; 
     top: 15px; 
-    left: 15px; /* <-- CAMBIO CLAVE: Posicionado a la izquierda */
+    left: 15px;
     background-color: var(--gold-accent);
     color: var(--dark-base);
     border: none;
@@ -116,7 +112,6 @@ main {
     z-index: 11; 
     font-size: 1.2rem;
 }
-
 .toggle-btn:hover {
     background-color: var(--gold-hover);
     transform: scale(1.1);
