@@ -1,4 +1,4 @@
-/* Definición de variables CSS para los colores principales */
+/* ... (Estilos globales sin cambios hasta aquí) ... */
 :root {
     --dark-base: #1C1C1C;
     --dark-secondary: #2C2C2C;
@@ -33,13 +33,13 @@ h1 {
 
 main {
     padding: 20px;
-    margin-left: 0; /* Aseguramos que el contenido principal no tenga margen */
+    margin-left: 0;
     background-color: var(--medium-dark-gray); 
     color: var(--text-color); 
     min-height: 80vh;
 }
 
-/* --- Imagen Central --- */
+/* --- Imagen Central (sin cambios) --- */
 .image-container {
     display: flex;
     justify-content: center;
@@ -73,7 +73,7 @@ main {
     padding-top: 80px; 
     box-shadow: 2px 0 5px rgba(0,0,0,0.5);
     transition: transform 0.3s ease-in-out;
-    transform: translateX(-200px); /* Oculta la barra por defecto */
+    transform: translateX(-200px);
     z-index: 10; 
 }
 .sidebar:not(.closed) { transform: translateX(0); }
@@ -95,7 +95,6 @@ main {
     color: var(--gold-hover);
 }
 
-/* Estilo del botón para desplegar/colapsar el menú */
 .toggle-btn {
     position: fixed; 
     top: 15px; 
@@ -133,23 +132,22 @@ footer {
 /*  MEDIA QUERIES: Adaptación a pantallas pequeñas */
 /* ============================================== */
 
-/* Para pantallas de hasta 600px de ancho (típicamente móviles en vertical) */
 @media (max-width: 600px) {
     
     h1 {
-        font-size: 1.8rem; /* Título más pequeño en móvil */
+        font-size: 1.8rem;
+        /* Pequeño ajuste visual para centrar el texto dentro del header con padding-left */
+        margin-left: -20px; 
     }
 
     .frieren-img {
-        width: 200px; /* Imagen más pequeña en móvil */
+        width: 200px;
     }
 
-    /* Ajustamos el padding del main para que no quede demasiado apretado */
     main {
         padding: 10px;
     }
 
-    /* El botón del menú lo movemos un poco para que no quede pegado al borde */
     .toggle-btn {
         left: 10px;
         top: 10px;
@@ -160,16 +158,8 @@ footer {
         padding-left: 60px; 
     }
     
-    /* Ajustamos el footer para que quede bien en pantallas estrechas */
     footer {
         font-size: 0.7rem;
         padding: 0.5rem 0;
     }
 }
-
-/* Puedes añadir más media queries para tablets si lo necesitas, por ejemplo: */
-/*
-@media (max-width: 900px) {
-    h1 { font-size: 2.2rem; }
-}
-*/
