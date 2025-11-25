@@ -13,11 +13,12 @@
         <h1>Cosas</h1>
     </header>
 
+    <!-- El botón de menú ahora está aquí, fuera del aside -->
+    <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
+
     <!-- Barra lateral desplegable: comienza cerrada con la clase 'closed' -->
     <aside class="sidebar closed" id="sidebar">
-        <!-- Botón para abrir/cerrar la barra lateral, solo con icono ☰ -->
-        <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
-
+        <!-- El botón ya no está dentro de esta sección -->
         <nav id="navLinks">
             <a href="lista_libros.html" class="nav-button">Lista de Libros</a>
             <a href="calculadora.html" class="nav-button">Calculadora</a>
@@ -25,7 +26,6 @@
     </aside>
 
     <main>
-        <!-- El contenido principal es gris claro -->
         <div class="image-container">
             <img src="frieren.png" alt="Imagen de Frieren" id="frierenImage" class="frieren-img">
         </div>
