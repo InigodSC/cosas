@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animaciones con JavaScript</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cosas - Inicio</title>
+    <link rel="stylesheet" href="index_style.css">
+    <!-- Enlazar script.js con 'defer' para que cargue después del HTML -->
+    <script src="index_script.js" defer></script>
 </head>
 <body>
 
     <header>
-        <h1>Animaciones con JavaScript</h1>
+        <h1>Cosas</h1>
     </header>
 
-    <main>
-        <h2>Haz clic en la caja para animarla</h2>
-        
-        <div class="animation-container">
-            <!-- La caja que animaremos con JavaScript -->
-            <div id="box" class="box">
-                ¡Anímame!
-            </div>
-        </div>
+    <!-- Barra lateral desplegable -->
+    <aside class="sidebar" id="sidebar">
+        <!-- Botón para cerrar/abrir la barra lateral (visible en móvil o si se cierra) -->
+        <button id="toggleSidebarBtn" class="toggle-btn">☰ Menú</button>
 
-        <button id="animateButton">Reiniciar Animación JS</button>
-        
-        <section>
-            <h2>Animación CSS Pura (Hover)</h2>
-            <div class="css-box">
-                Pasa el ratón por aquí
-            </div>
-        </section>
+        <nav id="navLinks">
+            <!-- Botón 1: Lista de Libros -->
+            <a href="lista_libros.html" class="nav-button">Lista de Libros</a>
+            
+            <!-- Botón 2: Calculadora -->
+            <a href="calculadora.html" class="nav-button">Calculadora</a>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- Contenedor central para la imagen -->
+        <div class="image-container">
+            <img src="frieren.png" alt="Imagen de Frieren" id="frierenImage" class="frieren-img">
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Ejemplo JS.</p>
+        <p>&copy; 2025 Cosas Project</p>
     </footer>
 
-    <!-- Enlazar el archivo JavaScript -->
-    <script src="script.js" defer></script>
 </body>
 </html>
