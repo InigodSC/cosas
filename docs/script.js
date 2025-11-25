@@ -1,26 +1,25 @@
 // Esperamos a que todo el HTML esté cargado antes de ejecutar JS
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleccionamos la caja por su ID
+    // Seleccionamos la caja y el botón por su ID
     const box = document.getElementById('box');
     const animateButton = document.getElementById('animateButton');
 
     // Función para realizar la animación con JavaScript
     function runAnimation() {
-        // Usamos la API Web Animations (moderna y eficiente)
-        // Definimos los Keyframes (estados inicial y final)
+        // Definimos los Keyframes (estados inicial y final/medio)
         const keyframes = [
-            // Inicio: posición original ( translateX(0px) ), opacidad 1
-            { transform: 'translateX(0px)', opacity: 1, backgroundColor: '#28a745' },
-            // Mitad: mover a la derecha, girar, cambiar color
-            { transform: 'translateX(600px) rotate(180deg)', opacity: 0.5, backgroundColor: '#007bff' },
-            // Fin: volver a la posición original, opacidad 1
-            { transform: 'translateX(0px)', opacity: 1, backgroundColor: '#28a745' }
+            // Inicio
+            { transform: 'translateX(0px) scale(1)', opacity: 1, backgroundColor: '#28a745' },
+            // Mitad del camino
+            { transform: 'translateX(600px) scale(1.5) rotate(180deg)', opacity: 0.5, backgroundColor: '#007bff' },
+            // Fin (vuelve al inicio)
+            { transform: 'translateX(0px) scale(1)', opacity: 1, backgroundColor: '#28a745' }
         ];
 
         // Definimos las opciones de la animación
         const options = {
             duration: 2000, // Duración total de 2 segundos (en milisegundos)
-            iterations: 1, // Se ejecuta solo una vez
+            iterations: 1, // Se ejecuta solo una vez por clic
             easing: 'ease-in-out', // Curva de aceleración suave
             fill: 'forwards' // Mantiene el estado final de la animación
         };
