@@ -1,17 +1,17 @@
-/* Definición de variables CSS para los colores principales */
+/* ... (Variables y estilos generales sin cambios) ... */
 :root {
-    --dark-base: #1C1C1C; /* El gris muy oscuro principal */
-    --dark-secondary: #2C2C2C; /* Un tono ligeramente más claro */
-    --gold-accent: #D19900; /* El dorado principal */
-    --gold-hover: #E8B000; /* Un dorado un poco más claro para el hover */
-    --light-bg: #F0F0F0; /* Nuevo gris claro para el main content (donde está la imagen) */
-    --text-color: #e0e0e0; /* Color de texto claro para el fondo oscuro */
+    --dark-base: #1C1C1C;
+    --dark-secondary: #2C2C2C;
+    --gold-accent: #D19900;
+    --gold-hover: #E8B000;
+    --light-bg: #F0F0F0;
+    --text-color: #e0e0e0;
 }
 
 body {
     font-family: Candara, "Segoe UI", sans-serif;
-    background-color: var(--dark-base); /* Fondo principal gris oscuro */
-    color: var(--text-color); /* Texto claro */
+    background-color: var(--dark-base);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -33,20 +33,19 @@ h1 {
 
 main {
     padding: 20px;
-    margin-left: 0; /* El contenido principal comienza sin margen, la barra lateral se superpone */
-    background-color: var(--light-bg); /* Fondo gris claro */
-    color: var(--dark-base); /* Texto oscuro en el main */
+    margin-left: 0; /* Aseguramos que el contenido principal no tenga margen */
+    background-color: var(--light-bg);
+    color: var(--dark-base);
     min-height: 80vh;
 }
 
-/* --- Imagen Central (sin cambios importantes, solo colores) --- */
+/* --- Imagen Central (sin cambios) --- */
 .image-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60vh;
 }
-
 .frieren-img {
     width: 300px;
     height: auto;
@@ -55,15 +54,8 @@ main {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-
-.frieren-img:hover {
-    transform: scale(1.05);
-}
-
-.animated {
-    animation: spinAndGrow 1s ease-in-out forwards;
-}
-
+.frieren-img:hover { transform: scale(1.05); }
+.animated { animation: spinAndGrow 1s ease-in-out forwards; }
 @keyframes spinAndGrow {
     0% { transform: scale(1) rotate(0deg); }
     50% { transform: scale(1.5) rotate(180deg); border-color: var(--gold-accent); }
@@ -74,22 +66,18 @@ main {
 .sidebar {
     height: 100%;
     width: 200px;
-    position: fixed; /* Mantiene la barra fija en la ventana */
+    position: fixed;
     top: 0;
     left: 0;
     background-color: var(--dark-base);
-    padding-top: 80px;
+    padding-top: 80px; 
     box-shadow: 2px 0 5px rgba(0,0,0,0.5);
     transition: transform 0.3s ease-in-out;
     transform: translateX(-200px); /* Oculta la barra por defecto */
-    z-index: 10; /* Asegura que la barra esté por encima del main content */
+    z-index: 10; 
 }
 
-.sidebar.closed {
-    transform: translateX(-200px);
-}
-
-/* Cuando la barra no está cerrada (está abierta), se muestra en la posición 0 */
+/* Cuando la barra no está cerrada (está abierta), se muestra */
 .sidebar:not(.closed) {
     transform: translateX(0);
 }
@@ -105,7 +93,6 @@ main {
     transition: background-color 0.3s, transform 0.3s;
     border: 1px solid transparent;
 }
-
 .nav-button:hover {
     background-color: var(--dark-secondary); 
     transform: scale(1.05);
@@ -113,20 +100,22 @@ main {
     color: var(--gold-hover);
 }
 
+/* Estilo del botón para desplegar/colapsar el menú (AHORA ES INDEPENDIENTE) */
 .toggle-btn {
-    position: absolute;
-    top: 15px;
-    /* Se mueve dentro de la barra lateral ahora, o queda visible si prefieres */
-    right: 10px; 
+    position: fixed; /* Posición fija en la ventana */
+    top: 15px; /* Separado del borde superior */
+    left: 15px; /* Separado del borde izquierdo */
     background-color: var(--gold-accent);
     color: var(--dark-base);
     border: none;
-    padding: 5px 10px;
+    padding: 10px 15px; /* Padding ajustado para ser solo un icono visible */
     cursor: pointer;
     border-radius: 4px;
     font-family: inherit;
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     transition: background-color 0.3s, transform 0.3s;
+    z-index: 11; /* Asegura que el botón esté encima de todo, incluso del sidebar */
+    font-size: 1.2rem; /* Para que el icono ☰ sea visible */
 }
 
 .toggle-btn:hover {
