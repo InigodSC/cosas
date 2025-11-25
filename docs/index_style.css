@@ -1,25 +1,29 @@
 /* Definición de variables CSS para los colores principales */
 :root {
-    --dark-gray: #2c3e50;
-    --gold-accent: #f1c40f; /* Dorado/Amarillo oscuro */
-    --light-bg: #ecf0f1;
+    --dark-base: #1C1C1C; /* El gris muy oscuro principal */
+    --dark-secondary: #2C2C2C; /* Un tono ligeramente más claro para contrastes */
+    --gold-accent: #D19900; /* El dorado principal */
+    --gold-hover: #E8B000; /* Un dorado un poco más claro para el hover */
+    --light-bg: #f4f4ff; /* Un fondo muy claro para el main content */
+    --text-color: #e0e0e0; /* Color de texto claro para el fondo oscuro */
 }
 
 body {
     font-family: Candara, "Segoe UI", sans-serif;
-    background-color: var(--light-bg);
-    color: var(--dark-gray);
+    background-color: var(--dark-base); /* Fondo principal gris oscuro */
+    color: var(--text-color); /* Texto claro */
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
 header {
-    background-color: var(--dark-gray);
+    background-color: var(--dark-secondary);
     color: white;
     padding: 1rem 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border-bottom: 2px solid var(--gold-accent);
 }
 
 h1 {
@@ -29,9 +33,11 @@ h1 {
 
 main {
     padding: 20px;
-    /* Asegura que el main no se superponga con la barra lateral */
     margin-left: 220px; 
     transition: margin-left 0.3s;
+    background-color: var(--light-bg); /* El contenedor principal es claro para que resalte */
+    color: var(--dark-base); /* El texto dentro del main es oscuro */
+    min-height: 80vh; /* Para asegurar que el footer quede abajo */
 }
 
 /* --- Imagen Central --- */
@@ -39,16 +45,15 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh; /* Centra verticalmente en la ventana */
+    height: 60vh;
 }
 
 .frieren-img {
     width: 300px;
     height: auto;
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     cursor: pointer;
-    /* Transición CSS para el efecto hover (se hace un poco más grande) */
     transition: transform 0.3s ease;
 }
 
@@ -58,15 +63,14 @@ main {
 
 /* Clase que JavaScript añadirá/quitará para la animación de clic */
 .animated {
-    /* Usamos la propiedad transform para la rotación y el escalado */
     animation: spinAndGrow 1s ease-in-out forwards;
 }
 
 /* Definición de la animación de giro y crecimiento */
 @keyframes spinAndGrow {
     0% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.5) rotate(180deg); } /* Mitad del giro, tamaño grande */
-    100% { transform: scale(1) rotate(360deg); } /* Giro completo, vuelve a tamaño original */
+    50% { transform: scale(1.5) rotate(180deg); border-color: var(--gold-accent); }
+    100% { transform: scale(1) rotate(360deg); }
 }
 
 /* --- Barra Lateral --- */
@@ -76,9 +80,9 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--dark-gray);
-    padding-top: 80px; /* Espacio para el header */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    background-color: var(--dark-base); /* Fondo de la barra lateral muy oscuro */
+    padding-top: 80px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
     transition: transform 0.3s;
 }
 
@@ -87,7 +91,7 @@ main {
 }
 
 .sidebar.closed + main {
-    margin-left: 20px; /* El main ocupa el espacio completo si la barra está cerrada */
+    margin-left: 20px;
 }
 
 .nav-button {
@@ -97,33 +101,37 @@ main {
     text-decoration: none;
     text-align: center;
     margin: 10px 10px;
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 8px;
     transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid transparent;
 }
 
 /* Hover: cambio de color (un poco más oscuro) y ampliación de tamaño */
 .nav-button:hover {
-    background-color: #34495e; 
+    background-color: var(--dark-secondary); 
     transform: scale(1.05);
-    box-shadow: 0 0 10px var(--gold-accent); /* Brillo dorado en hover */
+    border-color: var(--gold-accent); /* Borde dorado en hover */
+    color: var(--gold-hover);
 }
 
 /* Estilo del botón para desplegar/colapsar el menú */
 .toggle-btn {
     position: absolute;
     top: 15px;
-    right: -50px; /* Posicionado fuera del sidebar inicialmente */
+    right: -50px;
     background-color: var(--gold-accent);
+    color: var(--dark-base); /* Texto oscuro en botón dorado */
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 4px;
     font-family: inherit;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 footer {
-    background-color: var(--dark-gray);
-    color: white;
+    background-color: var(--dark-secondary);
+    color: var(--text-color);
     text-align: center;
     padding: 1rem 0;
     position: fixed;
