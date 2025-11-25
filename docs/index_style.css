@@ -1,0 +1,133 @@
+/* Definición de variables CSS para los colores principales */
+:root {
+    --dark-gray: #2c3e50;
+    --gold-accent: #f1c40f; /* Dorado/Amarillo oscuro */
+    --light-bg: #ecf0f1;
+}
+
+body {
+    font-family: Candara, "Segoe UI", sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-gray);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--gold-accent);
+}
+
+main {
+    padding: 20px;
+    /* Asegura que el main no se superponga con la barra lateral */
+    margin-left: 220px; 
+    transition: margin-left 0.3s;
+}
+
+/* --- Imagen Central --- */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Centra verticalmente en la ventana */
+}
+
+.frieren-img {
+    width: 300px;
+    height: auto;
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    /* Transición CSS para el efecto hover (se hace un poco más grande) */
+    transition: transform 0.3s ease;
+}
+
+.frieren-img:hover {
+    transform: scale(1.05);
+}
+
+/* Clase que JavaScript añadirá/quitará para la animación de clic */
+.animated {
+    /* Usamos la propiedad transform para la rotación y el escalado */
+    animation: spinAndGrow 1s ease-in-out forwards;
+}
+
+/* Definición de la animación de giro y crecimiento */
+@keyframes spinAndGrow {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.5) rotate(180deg); } /* Mitad del giro, tamaño grande */
+    100% { transform: scale(1) rotate(360deg); } /* Giro completo, vuelve a tamaño original */
+}
+
+/* --- Barra Lateral --- */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--dark-gray);
+    padding-top: 80px; /* Espacio para el header */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.sidebar.closed {
+    transform: translateX(-200px);
+}
+
+.sidebar.closed + main {
+    margin-left: 20px; /* El main ocupa el espacio completo si la barra está cerrada */
+}
+
+.nav-button {
+    display: block;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 10px;
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover: cambio de color (un poco más oscuro) y ampliación de tamaño */
+.nav-button:hover {
+    background-color: #34495e; 
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--gold-accent); /* Brillo dorado en hover */
+}
+
+/* Estilo del botón para desplegar/colapsar el menú */
+.toggle-btn {
+    position: absolute;
+    top: 15px;
+    right: -50px; /* Posicionado fuera del sidebar inicialmente */
+    background-color: var(--gold-accent);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+footer {
+    background-color: var(--dark-gray);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8rem;
+}
