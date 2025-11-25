@@ -21,8 +21,8 @@ function sumarNumeros() {
         const resultadoSuma = n1 + n2;
 
         // Escribimos el resultado en el elemento HTML
-        outputResultado.textContent = resultadoSuma;
-
+        //outputResultado.textContent = resultadoSuma;
+        outputResultado.textContent = "hola mundo";
     } catch (error) {
         // En caso de error (ej. campos vacíos), mostramos un mensaje
         outputResultado.textContent = "Error";
