@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosas - Inicio</title>
     <link rel="stylesheet" href="index_style.css">
-    <!-- Enlazar script.js con 'defer' para que cargue después del HTML -->
     <script src="index_script.js" defer></script>
 </head>
 <body>
@@ -14,22 +13,19 @@
         <h1>Cosas</h1>
     </header>
 
-    <!-- Barra lateral desplegable -->
-    <aside class="sidebar" id="sidebar">
-        <!-- Botón para cerrar/abrir la barra lateral (visible en móvil o si se cierra) -->
-        <button id="toggleSidebarBtn" class="toggle-btn">☰ Menú</button>
+    <!-- Barra lateral desplegable: comienza cerrada con la clase 'closed' -->
+    <aside class="sidebar closed" id="sidebar">
+        <!-- Botón para abrir/cerrar la barra lateral, solo con icono ☰ -->
+        <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
 
         <nav id="navLinks">
-            <!-- Botón 1: Lista de Libros -->
             <a href="lista_libros.html" class="nav-button">Lista de Libros</a>
-            
-            <!-- Botón 2: Calculadora -->
             <a href="calculadora.html" class="nav-button">Calculadora</a>
         </nav>
     </aside>
 
     <main>
-        <!-- Contenedor central para la imagen -->
+        <!-- El contenido principal es gris claro -->
         <div class="image-container">
             <img src="frieren.png" alt="Imagen de Frieren" id="frierenImage" class="frieren-img">
         </div>
