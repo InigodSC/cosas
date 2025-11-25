@@ -1,10 +1,10 @@
 /* Definición de variables CSS para los colores principales */
 :root {
     --dark-base: #1C1C1C; /* El gris muy oscuro principal */
-    --dark-secondary: #2C2C2C; /* Un tono ligeramente más claro para contrastes */
+    --dark-secondary: #2C2C2C; /* Un tono ligeramente más claro */
     --gold-accent: #D19900; /* El dorado principal */
     --gold-hover: #E8B000; /* Un dorado un poco más claro para el hover */
-    --light-bg: #f4f4ff; /* Un fondo muy claro para el main content */
+    --light-bg: #F0F0F0; /* Nuevo gris claro para el main content (donde está la imagen) */
     --text-color: #e0e0e0; /* Color de texto claro para el fondo oscuro */
 }
 
@@ -33,14 +33,13 @@ h1 {
 
 main {
     padding: 20px;
-    margin-left: 220px; 
-    transition: margin-left 0.3s;
-    background-color: var(--light-bg); /* El contenedor principal es claro para que resalte */
-    color: var(--dark-base); /* El texto dentro del main es oscuro */
-    min-height: 80vh; /* Para asegurar que el footer quede abajo */
+    margin-left: 0; /* El contenido principal comienza sin margen, la barra lateral se superpone */
+    background-color: var(--light-bg); /* Fondo gris claro */
+    color: var(--dark-base); /* Texto oscuro en el main */
+    min-height: 80vh;
 }
 
-/* --- Imagen Central --- */
+/* --- Imagen Central (sin cambios importantes, solo colores) --- */
 .image-container {
     display: flex;
     justify-content: center;
@@ -61,37 +60,38 @@ main {
     transform: scale(1.05);
 }
 
-/* Clase que JavaScript añadirá/quitará para la animación de clic */
 .animated {
     animation: spinAndGrow 1s ease-in-out forwards;
 }
 
-/* Definición de la animación de giro y crecimiento */
 @keyframes spinAndGrow {
     0% { transform: scale(1) rotate(0deg); }
     50% { transform: scale(1.5) rotate(180deg); border-color: var(--gold-accent); }
     100% { transform: scale(1) rotate(360deg); }
 }
 
-/* --- Barra Lateral --- */
+/* --- Barra Lateral (Overlay Logic) --- */
 .sidebar {
     height: 100%;
     width: 200px;
-    position: fixed;
+    position: fixed; /* Mantiene la barra fija en la ventana */
     top: 0;
     left: 0;
-    background-color: var(--dark-base); /* Fondo de la barra lateral muy oscuro */
+    background-color: var(--dark-base);
     padding-top: 80px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-200px); /* Oculta la barra por defecto */
+    z-index: 10; /* Asegura que la barra esté por encima del main content */
 }
 
 .sidebar.closed {
     transform: translateX(-200px);
 }
 
-.sidebar.closed + main {
-    margin-left: 20px;
+/* Cuando la barra no está cerrada (está abierta), se muestra en la posición 0 */
+.sidebar:not(.closed) {
+    transform: translateX(0);
 }
 
 .nav-button {
@@ -106,27 +106,32 @@ main {
     border: 1px solid transparent;
 }
 
-/* Hover: cambio de color (un poco más oscuro) y ampliación de tamaño */
 .nav-button:hover {
     background-color: var(--dark-secondary); 
     transform: scale(1.05);
-    border-color: var(--gold-accent); /* Borde dorado en hover */
+    border-color: var(--gold-accent);
     color: var(--gold-hover);
 }
 
-/* Estilo del botón para desplegar/colapsar el menú */
 .toggle-btn {
     position: absolute;
     top: 15px;
-    right: -50px;
+    /* Se mueve dentro de la barra lateral ahora, o queda visible si prefieres */
+    right: 10px; 
     background-color: var(--gold-accent);
-    color: var(--dark-base); /* Texto oscuro en botón dorado */
+    color: var(--dark-base);
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 4px;
     font-family: inherit;
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.toggle-btn:hover {
+    background-color: var(--gold-hover);
+    transform: scale(1.1);
 }
 
 footer {
