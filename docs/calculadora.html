@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosas - Calculadora</title>
-    <!-- Cargamos el CSS principal para mantener el tema -->
+    <!-- Cargamos el CSS principal para mantener el tema y la barra lateral -->
     <link rel="stylesheet" href="index_style.css"> 
     <!-- Cargamos el CSS específico de la calculadora -->
     <link rel="stylesheet" href="calculadora_style.css">
@@ -15,10 +15,18 @@
         <h1>Cosas</h1>
     </header>
     
-    <!-- El botón de menú debe estar aquí si quieres que aparezca en esta página -->
-    <!-- <button id="toggleSidebarBtn" class="toggle-btn">☰</button> -->
-    <!-- (Necesitarías copiar el script.js a esta página para que funcione la barra lateral) -->
+    <!-- Botón de menú siempre visible -->
+    <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
 
+    <!-- Barra lateral desplegable: comienza cerrada con la clase 'closed' -->
+    <aside class="sidebar closed" id="sidebar">
+        <nav id="navLinks">
+            <!-- Usamos enlaces absolutos o relativos correctos -->
+            <a href="index.html" class="nav-button">Inicio</a>
+            <a href="lista_libros.html" class="nav-button">Lista de Libros</a>
+            <a href="calculadora.html" class="nav-button">Calculadora</a>
+        </nav>
+    </aside>
 
     <main>
         <h2>Calculadora Simple</h2>
@@ -28,20 +36,22 @@
             <span>+</span>
             <input type="number" id="num2" placeholder="Segundo número">
             
-            <!-- El botón llama a la función JS -->
             <button onclick="sumarNumeros()">=</button>
             
             <p>Resultado: <span id="resultado">0</span></p>
         </div>
 
-        <a href="index.html" class="back-link">Volver al Inicio</a>
+        <!-- El enlace de volver ahora es redundante con la barra lateral, pero lo dejamos si quieres -->
+        <!-- <a href="index.html" class="back-link">Volver al Inicio</a> -->
     </main>
 
     <footer>
         <p>&copy; 2025 Cosas Project</p>
     </footer>
 
-    <!-- Cargamos el script específico de la calculadora -->
+    <!-- Cargamos el script de la calculadora (lógica de suma) -->
     <script src="calculadora_script.js"></script>
+    <!-- Cargamos el script principal (lógica de la barra lateral y animación de imagen) -->
+    <script src="index_script.js"></script>
 </body>
 </html>
