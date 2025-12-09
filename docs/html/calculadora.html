@@ -13,13 +13,10 @@
         <h1>Cosas</h1>
     </header>
     
-    <!-- Botón de menú siempre visible -->
     <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
 
-    <!-- Barra lateral desplegable: comienza cerrada con la clase 'closed' -->
     <aside class="sidebar closed" id="sidebar">
         <nav id="navLinks">
-            <!-- Usamos enlaces absolutos o relativos correctos -->
             <a href="../index.html" class="nav-button">Inicio</a>
             <a href="../html/lista_libros.html" class="nav-button">Lista de Libros</a>
             <a href="../html/calculadora.html" class="nav-button">Calculadora</a>
@@ -27,29 +24,47 @@
     </aside>
 
     <main>
-        <h2>Calculadora Simple</h2>
+        <h2>Calculadora de Expresión</h2>
         
         <div class="calculator-container">
-            <input type="number" id="num1" placeholder="Primer número">
-            <span>+</span>
-            <input type="number" id="num2" placeholder="Segundo número">
+            <input type="text" id="display" class="calculator-display" value="0" readonly>
             
-            <button onclick="sumarNumeros()">=</button>
+            <div class="calculator-grid">
+                <button class="clear" data-action="clear">C</button>
+                <button data-action="open-paren" class="paren-btn">(</button>
+                <button data-action="close-paren" class="paren-btn">)</button>
+                <button data-action="backspace" class="backspace-btn">⌫</button>
+                
+                <button data-number="7">7</button>
+                <button data-number="8">8</button>
+                <button data-number="9">9</button>
+                <button data-operator="/" class="operator-btn">÷</button>
+                
+                <button data-number="4">4</button>
+                <button data-number="5">5</button>
+                <button data-number="6">6</button>
+                <button data-operator="*" class="operator-btn">×</button>
+                
+                <button data-number="1">1</button>
+                <button data-number="2">2</button>
+                <button data-number="3">3</button>
+                <button data-operator="-" class="operator-btn">-</button>
+                
+                <button data-number="0" class="zero-btn">0</button> 
+                <button data-action="decimal" class="decimal-btn">.</button>
+                <button data-operator="+" class="operator-btn">+</button>
+                
+                <button data-action="calculate" class="equals-btn">=</button>
+            </div>
             
-            <p>Resultado: <span id="resultado">0</span></p>
         </div>
-
-        <!-- El enlace de volver ahora es redundante con la barra lateral, pero lo dejamos si quieres -->
-        <!-- <a href="index.html" class="back-link">Volver al Inicio</a> -->
     </main>
 
     <footer>
         <p>&copy; 2025 Cosas Project</p>
     </footer>
 
-    <!-- Cargamos el script de la calculadora (lógica de suma) -->
     <script src="../js/calculadora_script.js"></script>
-    <!-- Cargamos el script principal (lógica de la barra lateral y animación de imagen) -->
     <script src="../js/index_script.js"></script>
 </body>
 </html>
