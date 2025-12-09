@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Lógica de la imagen (solo funciona en index.html) ---
     // Comprobamos si la imagen existe en esta página antes de intentar añadir el listener
-    const frierenImage = document.getElementById('../img/frierenImage');
+    const frierenImage = document.getElementById('frierenImage');
     if (frierenImage) {
         frierenImage.addEventListener('click', () => {
             animateImage(frierenImage);
