@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosas - Inicio</title>
+    <link rel="stylesheet" href="css/index_style.css">
+    <script src="js/index_script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Cosas</h1>
+    </header>
+
+    <!-- El botón de menú ahora está aquí, fuera del aside -->
+    <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
+
+    <!-- Barra lateral desplegable: comienza cerrada con la clase 'closed' -->
+    <aside class="sidebar closed" id="sidebar">
+        <!-- El botón ya no está dentro de esta sección -->
+        <nav id="navLinks">
+            <a href="html/lista_libros.html" class="nav-button">Lista de Libros</a>
+            <a href="html/calculadora.html" class="nav-button">Calculadora</a>
+        </nav>
+    </aside>
+
+    <main>
+        <div class="image-container">
+            <img src="img/frieren.png" alt="Imagen de Frieren" id="frierenImage" class="frieren-img">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Cosas Project</p>
+    </footer>
+
+</body>
+</html>
