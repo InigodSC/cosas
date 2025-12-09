@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosas - Calculadora</title>
+    <!-- Cargamos el CSS principal para mantener el tema y la barra lateral -->
+    <link rel="stylesheet" href="../css/calculadora_style.css"> 
+    <!-- Cargamos el CSS específico de la calculadora -->
+    <link rel="stylesheet" href="../css/calculadora_style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Cosas</h1>
+    </header>
+    
+    <!-- Botón de menú siempre visible -->
+    <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
+
+    <!-- Barra lateral desplegable: comienza cerrada con la clase 'closed' -->
+    <aside class="sidebar closed" id="sidebar">
+        <nav id="navLinks">
+            <!-- Usamos enlaces absolutos o relativos correctos -->
+            <a href="../html/index.html" class="nav-button">Inicio</a>
+            <a href="../html/lista_libros.html" class="nav-button">Lista de Libros</a>
+            <a href="../html/calculadora.html" class="nav-button">Calculadora</a>
+        </nav>
+    </aside>
+
+    <main>
+        <h2>Calculadora Simple</h2>
+        
+        <div class="calculator-container">
+            <input type="number" id="num1" placeholder="Primer número">
+            <span>+</span>
+            <input type="number" id="num2" placeholder="Segundo número">
+            
+            <button onclick="sumarNumeros()">=</button>
+            
+            <p>Resultado: <span id="resultado">0</span></p>
+        </div>
+
+        <!-- El enlace de volver ahora es redundante con la barra lateral, pero lo dejamos si quieres -->
+        <!-- <a href="index.html" class="back-link">Volver al Inicio</a> -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Cosas Project</p>
+    </footer>
+
+    <!-- Cargamos el script de la calculadora (lógica de suma) -->
+    <script src="../js/calculadora_script.js"></script>
+    <!-- Cargamos el script principal (lógica de la barra lateral y animación de imagen) -->
+    <script src="../js/index_script.js"></script>
+</body>
+</html>
