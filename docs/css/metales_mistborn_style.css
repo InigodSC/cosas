@@ -1,0 +1,274 @@
+/*
+ * Archivo: metales_mistborn_style.css
+ * Implementación del diseño geométrico, colores por grupo y el modal emergente.
+ */
+
+/* --- Variables de Color por Grupo (Ajustadas al diseño de la imagen) --- */
+:root {
+    --color-fisico: #009999;      /* Azul/Verde-azulado (Físico) */
+    --color-mental: #AA4444;      /* Rojo/Marrón oscuro (Mental) */
+    --color-temporal: #55AA55;    /* Verde suave (Temporal) */
+    --color-mejora: #DDAA00;      /* Amarillo/Dorado (Mejora/Interno) */
+}
+
+/* =========================== */
+/* ESTILOS GENERALES Y LAYOUT */
+/* =========================== */
+
+/* Botón activo en el sidebar */
+.sidebar .nav-button.active {
+    background-color: var(--gold-accent);
+    color: var(--dark-base);
+    font-weight: bold;
+}
+.sidebar .nav-button.active:hover {
+    transform: none;
+    background-color: var(--gold-accent);
+}
+
+.intro-text {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+/* --- REJILLA Y TARJETAS (4x4 GRID) --- */
+
+.metal-grid {
+    display: grid;
+    /* 4 columnas para el diseño 4x4 */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px 20px; /* Más espacio vertical */
+    padding: 20px;
+}
+
+.metal-card {
+    background-color: var(--dark-secondary); 
+    border: 1px solid var(--medium-dark-gray);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer; /* Cambiado a pointer para indicar que es clickable */
+    overflow: visible; 
+    position: relative;
+    
+    /* Forma geométrica (Clip-path para ángulos) */
+    /* Define los cortes en las esquinas para la forma de las tarjetas */
+    clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Pseudo-Elemento para la BANDA DE COLOR SUPERIOR */
+.metal-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; 
+    left: 10%;
+    width: 80%;
+    height: 8px; /* Altura de la banda */
+    background-color: var(--medium-dark-gray); /* Color por defecto */
+    
+    /* Recorte de la banda para que encaje con la forma de la tarjeta */
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+    z-index: 2; 
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto Hover Común: Sombra y Elevación */
+.metal-card:hover {
+    transform: scale(1.05);
+    /* Sombra de la tarjeta (se añade el color específico más abajo) */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1), 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+
+/* --- ASIGNACIÓN DE COLORES POR CLASE --- */
+
+/* Físico (Blue/Teal) */
+.metal-card.group-fisico::before { background-color: var(--color-fisico); }
+.metal-card.group-fisico:hover { border-color: var(--color-fisico); box-shadow: 0 0 25px var(--color-fisico), 0 0 40px rgba(0, 0, 0, 0.8); }
+.metal-card.group-fisico h3 { color: var(--color-fisico); }
+
+/* Mental (Red/Brown) */
+.metal-card.group-mental::before { background-color: var(--color-mental); }
+.metal-card.group-mental:hover { border-color: var(--color-mental); box-shadow: 0 0 25px var(--color-mental), 0 0 40px rgba(0, 0, 0, 0.8); }
+.metal-card.group-mental h3 { color: var(--color-mental); }
+
+/* Temporal (Green) */
+.metal-card.group-temporal::before { background-color: var(--color-temporal); }
+.metal-card.group-temporal:hover { border-color: var(--color-temporal); box-shadow: 0 0 25px var(--color-temporal), 0 0 40px rgba(0, 0, 0, 0.8); }
+.metal-card.group-temporal h3 { color: var(--color-temporal); }
+
+/* Mejora (Yellow/Gold) */
+.metal-card.group-mejora::before { background-color: var(--color-mejora); }
+.metal-card.group-mejora:hover { border-color: var(--color-mejora); box-shadow: 0 0 25px var(--color-mejora), 0 0 40px rgba(0, 0, 0, 0.8); }
+.metal-card.group-mejora h3 { color: var(--color-mejora); }
+
+/* --- CONTENIDO DE LA TARJETA --- */
+
+.metal-card h3 {
+    margin-top: 10px; 
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+}
+
+.metal-card .clasificacion {
+    display: block;
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin-bottom: 5px;
+}
+.metal-card .uso-display {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    margin: 5px 0 0;
+}
+
+/* --- EFECTO DE BRILLO DINÁMICO (Sparkle Effect) --- */
+
+.sparkle-effect {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.metal-card:hover .sparkle-effect {
+    opacity: 0.7;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 60%); 
+    animation: sparkle-rotation 3s linear infinite;
+}
+
+@keyframes sparkle-rotation {
+    0% { transform: rotate(0deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1.2); }
+}
+
+/* --- ICONOS INFERIORES --- */
+
+.additional-info {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo para los iconos inferiores */
+.alommancy-icons span {
+    font-size: 3rem;
+    color: var(--gold-accent);
+    margin: 0 15px;
+    cursor: help;
+    transition: color 0.3s, transform 0.3s;
+}
+.alommancy-icons span:hover {
+    color: var(--gold-hover);
+    transform: scale(1.1);
+}
+
+/* ======================================= */
+/* --- MODAL EMERGENTE (CONTEXT MENU) --- */
+/* ======================================= */
+
+.metal-modal {
+    position: fixed; 
+    width: 300px; 
+    background-color: var(--dark-secondary);
+    /* El borde y la sombra se establecerán dinámicamente con JS */
+    border: 1px solid var(--gold-accent); 
+    border-radius: 5px;
+    padding: 15px;
+    z-index: 100; 
+    
+    /* Estado inicial: oculto */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.metal-modal.open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #aaa;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--gold-accent);
+}
+
+.modal-content h3 {
+    margin: 0 0 5px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    /* El color del h3 se define en JS para que coincida con el grupo del metal */
+}
+
+.modal-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+.modal-content p strong {
+    color: var(--gold-hover);
+}
+.modal-content .uso-modal {
+    font-style: italic;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+/* Opcional: la flecha no se usa para este estilo de menú contextual */
+.modal-arrow {
+    display: none; 
+}
+
+
+/* ============================================== */
+/* MEDIA QUERIES: Adaptación a pantallas pequeñas */
+/* ============================================== */
+
+@media (max-width: 1024px) {
+    .metal-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .metal-card {
+        padding: 10px;
+        /* Ajustar el clip-path para tarjetas más pequeñas si es necesario */
+        clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+    }
+}
+
+@media (max-width: 768px) {
+    .metal-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    .metal-grid {
+        grid-template-columns: 1fr; 
+    }
+    .metal-modal {
+        width: 90%;
+        max-width: 300px;
+    }
+}

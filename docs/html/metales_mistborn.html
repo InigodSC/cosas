@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosas - Metales Alománticos</title>
+    <link rel="stylesheet" href="../css/index_style.css"> 
+    <link rel="stylesheet" href="../css/metales_mistborn_style.css">
+    <script src="../js/index_script.js" defer></script>
+    <script src="../js/metales_mistborn_script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Los Metales de la Alomancia</h1>
+    </header>
+
+    <button id="toggleSidebarBtn" class="toggle-btn">☰</button>
+
+    <aside class="sidebar closed" id="sidebar">
+        <nav id="navLinks">
+            <a href="../index.html" class="nav-button">Inicio</a>
+            <a href="calculadora.html" class="nav-button">Calculadora</a>
+            <a href="#" class="nav-button active">Metales Mistborn</a>
+        </nav>
+    </aside>
+
+    <main>
+        
+        <p class="intro-text">
+            Haz clic en un metal para ver su descripción detallada.
+        </p>
+        
+        <div class="metal-grid" id="metalGrid">
+            
+            <div class="metal-card group-fisico" data-metal="Acero" data-clasificacion="Físico, Externo" data-uso="Empujar metales cercanos.">
+                <h3>Acero (Steel)</h3>
+                <span class="clasificacion">Físico | Externo</span>
+                <p class="uso-display">Empujar metales cercanos.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-fisico" data-metal="Hierro" data-clasificacion="Físico, Interno" data-uso="Atraer metales cercanos.">
+                <h3>Hierro (Iron)</h3>
+                <span class="clasificacion">Físico | Interno</span>
+                <p class="uso-display">Atraer metales cercanos.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-fisico" data-metal="Estaño" data-clasificacion="Físico, Interno" data-uso="Mejorar la sensación de los sentidos (Sentidos de estaño).">
+                <h3>Estaño (Tin)</h3>
+                <span class="clasificacion">Físico | Interno</span>
+                <p class="uso-display">Mejorar la sensación de los sentidos.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-fisico" data-metal="Peltre" data-clasificacion="Físico, Externo" data-uso="Mejorar la fuerza física, resistencia y curación lenta.">
+                <h3>Peltre (Pewter)</h3>
+                <span class="clasificacion">Físico | Externo</span>
+                <p class="uso-display">Mejorar la fuerza física.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+
+            <div class="metal-card group-mental" data-metal="Zinc" data-clasificacion="Mental, Externo" data-uso="Avivar (Riot) las emociones de otros.">
+                <h3>Zinc</h3>
+                <span class="clasificacion">Mental | Externo</span>
+                <p class="uso-display">Avivar las emociones de otros.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-mental" data-metal="Latón" data-clasificacion="Mental, Interno" data-uso="Calmar (Soothe) las emociones de otros.">
+                <h3>Latón (Brass)</h3>
+                <span class="clasificacion">Mental | Interno</span>
+                <p class="uso-display">Calmar las emociones de otros.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-mental" data-metal="Cobre" data-clasificacion="Mental, Interno" data-uso="Ocultar el uso de Alomancia (Smother).">
+                <h3>Cobre (Copper)</h3>
+                <span class="clasificacion">Mental | Interno</span>
+                <p class="uso-display">Ocultar uso de Alomancia.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-mental" data-metal="Bronce" data-clasificacion="Mental, Externo" data-uso="Detectar el uso de Alomancia (Seek).">
+                <h3>Bronce (Bronze)</h3>
+                <span class="clasificacion">Mental | Externo</span>
+                <p class="uso-display">Detectar uso de Alomancia.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+
+            <div class="metal-card group-temporal" data-metal="Cromo" data-clasificacion="Temporal, Interno" data-uso="Vaciar la reserva alomántica de otro (Leeching).">
+                <h3>Cromo (Chromium)</h3>
+                <span class="clasificacion">Temporal | Interno</span>
+                <p class="uso-display">Vaciar reserva alomántica (propia).</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-temporal" data-metal="Nicrosil" data-clasificacion="Temporal, Externo" data-uso="Drenar toda la reserva alomántica de otro (Nicroburst).">
+                <h3>Nicrosil</h3>
+                <span class="clasificacion">Temporal | Externo</span>
+                <p class="uso-display">Drenar reserva alomántica (otro).</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-temporal" data-metal="Cadmio" data-clasificacion="Temporal, Externo" data-uso="Ralentizar el tiempo en un área (Pulsing).">
+                <h3>Cadmio (Cadmium)</h3>
+                <span class="clasificacion">Temporal | Externo</span>
+                <p class="uso-display">Ralentizar el tiempo en un área.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-temporal" data-metal="Bendalloy" data-clasificacion="Temporal, Interno" data-uso="Acelerar el tiempo en un área (Sliding).">
+                <h3>Bendalloy</h3>
+                <span class="clasificacion">Temporal | Interno</span>
+                <p class="uso-display">Acelerar el tiempo en un área.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+
+            <div class="metal-card group-mejora" data-metal="Aluminio" data-clasificacion="Mejora, Interno" data-uso="Vaciar las reservas propias de todos los metales (Limpiar).">
+                <h3>Aluminio (Aluminum)</h3>
+                <span class="clasificacion">Mejora | Interno</span>
+                <p class="uso-display">Vaciar reservas propias.</p>
+                <div class="sparkle-effect"></div>
+            </div>
+            <div class="metal-card group-mejora" data-metal="Duraluminio" data-clasificacion="Mejora, Externo" data-uso="Quemar toda la reserva de un metal para un efecto masivo e instantáneo.">
+                <h3>Duraluminio (Duralumin)</h3>
+                <span class="clasificacion">Mejora | Extern
